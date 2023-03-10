@@ -1,0 +1,128 @@
+table {
+    margin-left: 5%;
+    position: relative;
+    border-collapse:collapse;
+    border-spacing: 0;
+    width: 90%;
+    text-align: left;
+    font-weight: 300;
+    font-family: Arial, sans-serif;}
+
+  th, td {
+    border: 0.5px black;
+    padding: 5px;
+    width : 25%;
+  }
+  .header{
+    padding-top: 5%;
+    background-color: rgb(209, 180, 236);
+  }
+
+
+  .infoBox{
+    display: flex;
+    background-color: white;
+    font-size: larger;
+    font-family:Arial, sans-serif; 
+    margin-top: 3%;
+    margin-left: 5%;
+    justify-content:space-between ;
+    margin-right: 5%;
+  }
+  .func {
+    padding-top: 1.5%;
+    padding-bottom: 2%;
+    background-color: white;
+    display: flex;
+    font-size: larger;
+    margin-top: 10px;
+    margin-left: 25%;
+    justify-content:space-between ;
+    margin-right: 25%;
+
+  }
+.name {
+  background-color: rgb(245, 222, 245);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+
+}
+  .delete {
+    width :100px;
+    height : 40px;
+    border-style:groove;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 800;
+    background: linear-gradient(to right, rgb(245, 222, 245), #8860d0);
+    color: white;
+    border-color:rgb(245, 222, 245);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease-in-out;
+    text-align:center;
+    text-decoration: wavy;
+   
+  }
+  .delete:hover{
+    border-color: #8860d0;
+  }
+
+  .search {
+    width :100px;
+    height : 40px;
+    border-style:groove;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 800;
+    background: linear-gradient(to right, rgb(245, 222, 245), #8860d0);
+    color: white;
+    border-color:rgb(245, 222, 245);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease-in-out;
+   
+  }
+  .search:hover{
+    border-color: #8860d0;
+  }
+  .add {
+    width :100px;
+    height : 40px;
+    border-style:groove;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 800;
+    background: linear-gradient(to right, rgb(245, 222, 245), #8860d0);
+    color: white;
+    border-color:rgb(245, 222, 245);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease-in-out;
+    text-align:center;
+    text-decoration: wavy;
+   
+  }
+  .add:hover{
+    border-color: #8860d0;
+  }
+  .modify {
+    width :100px;
+    height : 40px;
+    border-style:groove;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 800;
+    background: linear-gradient(to right, rgb(245, 222, 245), #8860d0);
+    color: white;
+    border-color:rgb(245, 222, 245);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease-in-out;
+    text-align:center;
+    text-decoration: wavy;
+   
+  }
+  .modify:hover{
+    border-color: #8860d0;
+  }

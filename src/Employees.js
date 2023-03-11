@@ -1,12 +1,10 @@
 import React from 'react'
-import {useState, useEffect, Component} from 'react'
+import {useState} from 'react'
 import './emp.css'
 import asset from './assetDB.json'
 import employee from './employeeDB.json'
-
-console.log(JSON.parse(employee))
-
-
+const jsonfile = require("./employeeDB.json");
+const filePath = './employeeDB.json';
 
 
 export const Employees = () => {
@@ -59,12 +57,11 @@ export const Employees = () => {
 // holding by the employeeName display "record exist" 
 // if found the employee, add data
 //Find Employee in Json, if EmployeeName not found create one, add data
-    function Add(validName, valueExist, valueConflict, EName, Aname, SNumber, date) {
-      const [updatedEmployees, setUpdatedEmployees ]= useState([])
-      if (valueConflict || !valueExist) {
-        alert("!!!")
-      } else {
-      if (!validName) {
+
+
+  function Add( EName, Aname, SNumber, date) {
+     console.log("No name found, add as a new obj")
+
         const newData = {
           EmployeeName: EName,
           Assets: [
@@ -75,39 +72,45 @@ export const Employees = () => {
             },
           ],
         };
-        setUpdatedEmployees ( [...employee, newData])
+        return [...employee, newData]
+      } 
+      //setEmployee([...employee, newData]);
       
-      } else {
+  function AddToTop(EName, Aname, SNumber, date) {
+    console.log("Name found, add as a new asset")
         const employeeIndex = employee.findIndex(
           (e) => e.EmployeeName === EName
         );
-        const updatedAssets = [...employee[employeeIndex].Assets,
+        const updatedAssets = [...employee[employeeIndex]["Assets"],
           {
             AssetName: Aname,
             SerialNumber: SNumber,
             DateAssigned: date,
           },
         ];
-         setUpdatedEmployees([...employee])
+        const updatedEmployees = [...employee];
         updatedEmployees[employeeIndex] = {
           ...updatedEmployees[employeeIndex],
           Assets: updatedAssets,
         };
-       
+        return updatedEmployees
       }
-    }
-    return updatedEmployees
-    }
-
-    
-
+      //setEmployee(updatedEmployees);
+      const updateDataFile = (filePath, employeeData) => {
+        jsonfile.writeFile(filePath, employeeData, (err) => { // browser, writefile, readfile doesn't work
+          if (err) {
+            console.error(err);
+          } else {
+            console.log("Data file updated successfully");
+          }
+        });
+      };
      export const EmployeeFunction = () => {
         const [empName, setEmpName] = useState('')
         const [assetName, setAssetName] = useState('')
         const [serialNumber, setSerialNumber] = useState('')
-        const [date, setDate] = useState('' )
-        const[employeeData, setEmployeeData] = useState(employee)
-
+        const [date, setDate] = useState(new Date())
+        const [employeeData, setEmployeeData] = useState(employee)
       // employeeDB.json data
       
         const handleEmpName = (name) => {
@@ -122,6 +125,7 @@ export const Employees = () => {
         const handleDate = (date) => {
             setDate(date)
         }
+    
         //  // check whether the asset exist in assetDB.json
           const  valueExist = asset && Object.values(asset).some(obj => obj.SrialNumber === serialNumber)
         //  //check whether the SNumber is holding by someone else
@@ -130,10 +134,10 @@ export const Employees = () => {
           const validName = employee && Object.values(employee).some(obj => (obj.EmployeeName === empName))
         //  // check Date format, if not assign current date
         //  const dateFormat = Date.parse(date)
-        //  if (date <= new Date() || isNaN(dateFormat)) {
+        //  if (dateFormat <= new Date() || isNaN(dateFormat)) {
         //      setDate(new Date())
-        //  }
-   
+        //   }
+          const dataValidation = valueExist && !valueConflict 
         return (
             <div>
                 <ul className = "infoBox">
@@ -158,10 +162,10 @@ export const Employees = () => {
                 <ul className = "func">
                     <li><button className = "search">Search</button></li>
                     <li><button className = "add" onClick={() => {
-                     
-                        setEmployeeData(Add(validName, valueExist, valueConflict, empName, assetName, serialNumber, date))
-                      
-                    }}>Add</button></li>
+                         dataValidation ? (validName ? setEmployeeData(Add(empName, assetName, serialNumber, date), updateDataFile(filePath, employeeData)) : setEmployeeData(AddToTop(empName, assetName, serialNumber, date), updateDataFile(filePath, employeeData))
+                                                                     ) : alert("No good data");
+                          }}
+                                                      >Add</button></li>
                     <li><button className = "delete">Delete</button></li>
                     <li><button className = "modify">Modify</button></li>
                 </ul>

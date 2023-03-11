@@ -19,49 +19,5 @@
                 "DateAssigned" : "3/1/2023"
             }
         ]
-    },
-    {
-        "EmployeeName" : "Junnan Li",
-        "Assets" : [
-            {"AssetName" : "MacBook Pro 13'",
-            "SerialNumber" : "123",
-            "DateAssigned" : "3/1/2023"},
-            {"AssetName" : "Keyboard",
-            "SerialNumber" : "789",
-            "DateAssigned" : "3/1/2023"}
-        ] 
-    },
-    {
-        "EmployeeName" : "Junnan Li",
-        "Assets" : [
-            {"AssetName" : "MacBook Pro 13'",
-            "SerialNumber" : "123",
-            "DateAssigned" : "3/1/2023"},
-            {"AssetName" : "Keyboard",
-            "SerialNumber" : "789",
-            "DateAssigned" : "3/1/2023"}
-        ] 
-    },
-    {
-        "EmployeeName" : "Junnan Li",
-        "Assets" : [
-            {"AssetName" : "MacBook Pro 13'",
-            "SerialNumber" : "123",
-            "DateAssigned" : "3/1/2023"},
-            {"AssetName" : "Keyboard",
-            "SerialNumber" : "789",
-            "DateAssigned" : "3/1/2023"}
-        ] 
-    },
-    {
-        "EmployeeName" : "Junnan Li",
-        "Assets" : [
-            {"AssetName" : "MacBook Pro 13'",
-            "SerialNumber" : "123",
-            "DateAssigned" : "3/1/2023"},
-            {"AssetName" : "Keyboard",
-            "SerialNumber" : "789",
-            "DateAssigned" : "3/1/2023"}
-        ] 
     }
 ]
